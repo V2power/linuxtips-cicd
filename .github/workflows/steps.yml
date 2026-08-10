@@ -1,0 +1,20 @@
+name: First workflow
+on:
+  push:
+    branches:
+      - main
+jobs:
+  giropops:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confere versao do Ubuntu
+        run: cat /etc/os-release
+
+      - name: Exibir uma mensagem
+        run: echo "LINUXtips" > mensagem.txt
+      
+      - name: Outra coisa
+        run: ls -lha
+      
+      - name: Conteudo do arquivo
+        run: cat mensagem.txt
