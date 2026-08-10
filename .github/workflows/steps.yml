@@ -1,4 +1,4 @@
-name: First workflow
+name: First workflow step
 on:
   push:
     branches:
