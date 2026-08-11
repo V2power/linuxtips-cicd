@@ -25,13 +25,13 @@ jobs:
             run: docker pull ${{ github.event.inputs.image_name }}
           - name: List image
             run: |
-              $DOCKER_IMAGE=$(echo "${{ github.event.inputs.image_name}} | cut -d: -f1)") 
+              $DOCKER_IMAGE=$(echo "${{ github.event.inputs.image_name}}" | cut -d: -f1)) 
               docker images | grep $DOCKER_IMAGE
           - name: Docker Scout
             id: docker-scout
             uses: docker/scout-action@v1
             with:
-              image: ${{ github.event.inputs.image_name }}
+              image: $DOCKER_IMAGE
               command: cves,recommendations
               to-latest: true
               ignore-base: true
