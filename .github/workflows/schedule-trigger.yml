@@ -1,7 +1,7 @@
 name: Schedule Trigger
 on:
   schedule:
-    - cron: 18 14 * * 4
+    - cron: 19 14 * * 4
 jobs:
   schedule:
     runs-on: ubuntu-latest
