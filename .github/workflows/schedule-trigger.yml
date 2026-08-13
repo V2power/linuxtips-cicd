@@ -1,10 +1,15 @@
 name: Schedule Trigger
 on:
   schedule:
-    - cron: 19 14 * * 4
+    - cron: 30 17 * * 4
+    - cron: '*/5 * * * 5'
 jobs:
   schedule:
     runs-on: ubuntu-latest
     steps:
+      - name: Informa horário específico com Cron fixo
+        if: github.event.schedule == '21 17 * * 4'
+        run: echo "Esse horário é o IF $(date) UTC"
+
       - name: Cronjob que roda determinado horário
-        run: echo "$(date) UTC"
+        run: echo "Nesse step passam todos os crons, $(date) UTC"
