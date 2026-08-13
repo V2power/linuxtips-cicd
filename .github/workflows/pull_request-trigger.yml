@@ -1,0 +1,12 @@
+name: Trigger para PR
+on:
+  pull_request:
+    types: [opened, edited, closed, reopened]
+    branches:
+      - 'main/**'
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger para testar Pull Request
+        run: echo "Pull Request foi criado, modificado ou adicionado na branch main."
