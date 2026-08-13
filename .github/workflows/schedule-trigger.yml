@@ -1,0 +1,10 @@
+name: Schedule Trigger
+on:
+  schedule:
+    - cron: 18 14 * * 4
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cronjob que roda determinado horário
+        run: echo "$(date) UTC"
