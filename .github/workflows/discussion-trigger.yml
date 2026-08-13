@@ -1,0 +1,10 @@
+name: Testando regra de Discussion
+on:
+  discussion:
+    types: [created, edited, answered]
+jobs:
+  discussion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Discussion
+        run: echo "Esse job foi triggado por uma discussion criada/alterada/respondida."

@@ -1,6 +1,6 @@
 name: First workflow
 on:
-  workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   giropops:
