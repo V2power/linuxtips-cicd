@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Discussion
-        run: Esse job foi triggado por uma discussion criada/alterada/respondida.
+        run: echo "Esse job foi triggado por uma discussion criada/alterada/respondida."
