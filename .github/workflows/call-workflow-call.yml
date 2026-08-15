@@ -1,0 +1,12 @@
+name: Workflow Dispatch que chama Workflow Call
+on:
+  workflow_dispatch:
+    inputs:
+      name-enviado:
+        required: true
+        type: string
+jobs:
+  call-workflow:
+    uses: .github/workflows/workflow-call-trigger.yml
+    with:
+      name-enviado: ${{ inputs.name-enviado }}
