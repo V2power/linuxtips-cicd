@@ -7,6 +7,6 @@ on:
         type: string
 jobs:
   call-workflow:
-    uses: .github/workflows/workflow-call-trigger.yml
+    uses: ./.github/workflows/workflow-call-trigger.yml
     with:
-      name-enviado: ${{ inputs.name-enviado }}
+      name: ${{ inputs.name-enviado }}
