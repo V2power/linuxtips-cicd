@@ -1,0 +1,13 @@
+name: Workflow Compartilhado
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+jobs:
+  course-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Informa o nome do curso
+        run: echo "O nome do curso é ${{ inputs.name }}"
