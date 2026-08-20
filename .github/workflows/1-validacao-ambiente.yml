@@ -3,9 +3,8 @@ on:
   workflow_dispatch:
     inputs:
       versao:
-        type: number
+        type: string
         required: true
-        default: 1
 jobs:
   call-build-e-testes:
     uses: ./.github/workflows/2-build-e-testes.yml
