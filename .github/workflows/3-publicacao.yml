@@ -1,0 +1,19 @@
+name: Publicação Condicional
+on:
+  workflow_run:
+    workflows: [Build e Testes]
+    types:
+      - completed
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Publicação Completo
+        run: echo "Aplicaçao publicada após testes completados com sucesso!"
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - name: Publicação Falha
+        run: echo "Testes falharam!"
