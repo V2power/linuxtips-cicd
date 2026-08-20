@@ -5,7 +5,7 @@ on:
       versao:
         type: number
         required: true
-        default: 1.0
+        default: 1
 jobs:
   build:
     runs-on: ubuntu-latest

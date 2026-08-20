@@ -5,7 +5,7 @@ on:
       versao:
         type: number
         required: true
-        default: 1.0
+        default: 1
 jobs:
   call-build-e-testes:
     uses: ./.github/workflows/2-build-e-testes.yml
