@@ -1,0 +1,14 @@
+name: Pipeline de testes do Terraform
+on:
+  workflow_dispatch
+jobs:
+  test-terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Modifica binário
+        run: chmod +x ./scripts/valida-tf.sh
+
+      - name: Script
+        run: ./scripts/valida-tf.sh
