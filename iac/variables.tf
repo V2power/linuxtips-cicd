@@ -1,8 +1,3 @@
-variable "ami_id" {
-  type = string
-  default = data.aws_ami.ubuntu.id
-}
-
 variable "instance_type" {
   type = string
   default = "t3.micro"
