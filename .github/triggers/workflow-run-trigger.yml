@@ -1,0 +1,12 @@
+name: Workflow Run
+on:
+  workflow_run:
+    workflows: [Workflow Dispatch que chama Workflow Call]
+    types:
+      - completed
+jobs:
+  aviso:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Aviso sobre conclusao do workflow
+        run: echo "Workflow Dispatch chamou o Workflow Call e terminou de ser executado"

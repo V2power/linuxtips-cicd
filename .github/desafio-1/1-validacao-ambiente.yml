@@ -1,0 +1,12 @@
+name: Validação de Ambiente
+on:
+  workflow_dispatch:
+    inputs:
+      versao:
+        type: string
+        required: true
+jobs:
+  call-build-e-testes:
+    uses: ./.github/workflows/2-build-e-testes.yml
+    with:
+      versao: ${{ inputs.versao }}
