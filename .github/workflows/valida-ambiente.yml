@@ -6,14 +6,18 @@ jobs:
     if: github.ref_name == 'main'
     runs-on: ubuntu-latest
     environment: production
+    env:
+      AMBIENTE: ${{ vars.AMBIENTE }}
     steps:
       - name: Printa valor ambiente
-        run: echo "Estou no ambiente de ${{ vars.AMBIENTE }}" 
+        run: echo "Estou no ambiente de $AMBIENTE" 
 
   valida-ambiente-staging:
     if: github.ref_name == 'staging'
     runs-on: ubuntu-latest
     environment: staging
+    env:
+      AMBIENTE: $${{ vars.AMBIENTE }}
     steps:
       - name: Printa valor ambiente
-        run: echo "Estou no ambiente de ${{ vars.AMBIENTE }}" 
+        run: echo "Estou no ambiente de $AMBIENTE".
