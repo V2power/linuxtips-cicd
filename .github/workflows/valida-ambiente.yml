@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     env:
-      AMBIENTE: $${{ vars.AMBIENTE }}
+      AMBIENTE: ${{ vars.AMBIENTE }}
     steps:
       - name: Printa valor ambiente
         run: echo "Estou no ambiente de $AMBIENTE".
