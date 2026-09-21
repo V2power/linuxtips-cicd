@@ -7,20 +7,20 @@ jobs:
     steps:
       - name: Teste de cobertura
         id: teste-cobertura # STEP ID = teste-cobertura
-        run: echo "porcentagem=87" >> "$GITHUB_OUTPUT"
+        run: echo "porcentagem=85" >> $GITHUB_OUTPUT
     outputs:
       teste-cobertura: ${{ steps.teste-cobertura.outputs.porcentagem }}
 
-  quality-gate: # JOB ID = quality-gate
+  quality-gate: # JOB ID = quality-gatess
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Quality Gate Tests
         env:
-          TESTE-COBERTURA: ${{ needs.build.outputs.teste-cobertura }}
+          TESTE_COBERTURA: ${{ needs.build.outputs.teste-cobertura }}
         run: |
           echo "Cobertura mínima 80%"
-          echo "Cobertura obtida: $TESTE-COBERTURA%"
+          echo "Cobertura obtida: $TESTE_COBERTURA%"
           if (( $TESTE-COBERTURA < 80 )); then
             echo "::error::Build reprovado por baixa cobertura"
             exit 1
