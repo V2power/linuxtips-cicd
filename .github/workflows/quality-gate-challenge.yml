@@ -36,7 +36,7 @@ jobs:
           VULNERABILITIES: ${{ needs.security.outputs.vulnerabilidades }}
           MINIMUM_COVERAGE: ${{ vars.COBERTURA_MINIMA }}
         run: |
-          echo "Coberetura mínima: $MINIMUMss_COVERAGE%"
+          echo "Coberetura mínima: $MINIMUM_COVERAGE%"
           echo "Cobertura obtida: $COVERAGE%"
           echo "Vulnerabilidades: $VULNERABILITIES"
           if (( COVERAGE >= MINIMUM_COVERAGE && VULNERABILITIES == 0 )); then
