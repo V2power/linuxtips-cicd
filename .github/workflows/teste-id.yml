@@ -21,7 +21,7 @@ jobs:
         run: |
           echo "Cobertura mínima 80%"
           echo "Cobertura obtida: $TESTE_COBERTURA%"
-          if (( $TESTE-COBERTURA < 80 )); then
+          if (( $TESTE_COBERTURA < 80 )); then
             echo "::error::Build reprovado por baixa cobertura"
             exit 1
           fi
