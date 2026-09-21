@@ -1,0 +1,38 @@
+name: CI Quality Gate
+on:
+  workflow_dispatch
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cobertura
+        id: coverage
+        run: echo "porcentagem=87" >> $GITHUB_OUTPUT
+    outputs:
+      cobertura: ${{ steps.coverage.outputs.porcentagem }}
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Segurança
+        id: security
+        run: echo "vulnerabilidades=0" >> $GITHUB_OUTPUT
+    outputs:
+      vulnerabilidades: ${{steps.security.outputs.vulnerabilidades}}
+  quality-gate:
+    needs: [tests, security]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checagem de qualidade
+        env:
+          COVERAGE: ${{ needs.tests.outputs.cobertura }}
+          VULNERABILITIES: ${{ needs.security.outputs.vulnerabilidades }}
+          MINIMUM_COVERAGE: ${{ vars.COBERTURA_MINIMA }}
+        run: |
+          echo "$MINIMUM_COVERAGE"
+          echo "Cobertura obtida: $COVERAGE%"
+          echo "Vulnerabilidades: $VULNERABILITIES"
+          if (( $TESTE_COBERTURA > 80  || $VULNERABILITIES < 0 )); then
+            echo "::success::Build aprovado!"
+            exit 1
+          fi
